@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function NewAttractionPage() {
   const router = useRouter();
@@ -39,15 +40,16 @@ export default function NewAttractionPage() {
     <div style={{ maxWidth: 640, margin: "24px auto" }}>
       <h1>Create Attraction</h1>
       <form onSubmit={onSubmit} style={{ display: "grid", gap: 12 }}>
-      <input name="name" placeholder="Name" value={form.name} onChange={onChange} required />
-        <input name="coverimage" placeholder="Cover Image URL" value={form.coverimage} onChange={onChange} required />
-        <textarea name="detail" placeholder="Detail" rows={4} value={form.detail} onChange={onChange} />
-        <input name="latitude" placeholder="Latitude" value={form.latitude} onChange={onChange} />
-        <input name="longitude" placeholder="Longitude" value={form.longitude} onChange={onChange} />
-        <button disabled={saving}>{saving ? "Saving..." : "Create"}</button>
-        {error && <div style={{ color: "crimson" }}>{error}</div>}
-      </form>
-      <p><a href="/attractions">Back</a></p>
-    </div>
-  );
+        <input name="name" placeholder="Name" value={form.name} 
+onChange={onChange} required />
+<input name="coverimage" placeholder="Cover Image URL" value={form.coverimage} onChange={onChange} required />
+<textarea name="detail" placeholder="Detail" rows={4} value={form.detail} onChange={onChange} />
+<input name="latitude" placeholder="Latitude" value={form.latitude} onChange={onChange} />
+<input name="longitude" placeholder="Longitude" value={form.longitude} onChange={onChange} />
+<button disabled={saving}>{saving ? "Saving..." : "Create"}</button>
+{error && <div style={{ color: "crimson" }}>{error}</div>}
+</form>
+<p><Link href="/attractions">Back</Link></p>
+</div>
+);
 }
